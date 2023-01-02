@@ -1,4 +1,5 @@
 import User from "../models/User";
+import convertData from "../../helper/convertData";
 
 export const getAllUser = async(req, res, next) => {
     let users;
@@ -8,9 +9,7 @@ export const getAllUser = async(req, res, next) => {
         console.log(error)
     }
 
-    if (!users) {
-        return res.status(404).json({message: 'No Users Found'});
-    }
+    const data = convertData(users);
 
-    return res.status(200).json({data: users});
+    return res.status(data.status).json(data);
 }
