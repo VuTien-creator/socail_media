@@ -1,3 +1,9 @@
 all:
   prefix:
     api: api
+  message:
+    success: 'Success'
+    error: 'Error'
+    not_found: 'Not Found'
+    user_not_found: 'User Not Found'
+    not_users_found: 'Not Users Found'
