@@ -13,6 +13,12 @@ dotenvExpand.expand(env);
 
 const port = process.env.PORT || 3000;
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded({ extended: true }));
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
 // connect to DB
 mongoose.connect(process.env.MONGO_URL)
     .then(() => app.listen(port, console.log('hello')))

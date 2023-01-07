@@ -7,17 +7,11 @@ import getDivision from './getDivision';
  * @returns {Object} return data has been formatted
  */
 const convertData = (object) => {
-    const data = {};
-    let status = 200;
-    let message = getDivision('message.success');
-    if (!object.length) {
-        status = 404;
-        message = getDivision('message.not_found');
-    }
+    const data = [];
     return {
-        status,
-        message,
-        data: object,
+        status: object.status,
+        message: object.message,
+        data: object.data,
     }
 }
 
