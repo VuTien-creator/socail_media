@@ -15,9 +15,18 @@ const getUser = async (param) => {
 }
 
 const createNewUser = async (data) => {
+    const object = {};
     //validate data
     // do something
 
+    const user = await getUser({ email: data.email });
+    //check if user already exist
+    if (user.data.length) {
+        object.status = constant.HTTP_STATUS.CONFLICT;
+        object.message = getDivision('message.error');
+        object.data = [];
+        return convertData(object);
+    }
     // convert password to encode
     data.password = bcrypt.hashSync(data.password);
     const newUser = await UserRepository.createNewUser(data);
