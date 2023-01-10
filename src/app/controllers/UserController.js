@@ -1,9 +1,4 @@
-import User from "../models/User";
-import convertData from "../../helper/convertData";
 import * as UserService from '../services/UserService'
-import * as constant from '../../config/app/constants'
-import getDivision from "../../helper/getDivision";
-import bcrypt from 'bcryptjs';
 
 const getAllUser = async (req, res, next) => {
     const result = await UserService.getAllUser();
